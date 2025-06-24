@@ -73,7 +73,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 font-oswald tracking-wider">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-oswald tracking-wider">
             <span className="bg-gradient-to-r from-bb-green via-bb-yellow to-bb-orange bg-clip-text text-transparent">
               Manuj Dinesh Chaudhari
             </span>
