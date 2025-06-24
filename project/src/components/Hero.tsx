@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   ChevronDown,
   Github,
@@ -10,12 +10,51 @@ import {
 import ThreeScene from "./ThreeScene";
 
 const Hero: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2200);
+    return () => clearTimeout(timer);
+  }, []);
+
   const scrollToAbout = () => {
     const element = document.getElementById("about");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
+        <div className="relative flex flex-col items-center justify-center">
+          {/* Glowing animated border */}
+          <div className="absolute -inset-4 rounded-3xl animate-pulse bg-gradient-to-r from-bb-green via-bb-yellow to-bb-orange blur-2xl opacity-60" style={{ filter: 'blur(32px)' }} />
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-bb-green animate-glow bg-black/80">
+            <img
+              src="/videos/loader.gif"
+              alt="Loading..."
+              className="w-[600px] h-[340px] object-cover"
+              style={{ maxWidth: '90vw', maxHeight: '60vh' }}
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-end pb-8">
+              <div className="bg-black/70 px-6 py-3 rounded-xl mt-4 animate-fade-in-up">
+                <p className="text-bb-green text-2xl md:text-3xl font-mono font-bold tracking-widest drop-shadow-lg animate-pulse">
+                  Cooking up something special...
+                </p>
+                <p className="text-bb-yellow text-lg font-mono mt-2 animate-fade-in">
+                  Please wait while the lab prepares your experience
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <section
