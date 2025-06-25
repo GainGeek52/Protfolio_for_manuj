@@ -63,31 +63,31 @@ const Hero: React.FC = () => {
     >
       <ThreeScene />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 text-center relative z-10">
         <div className="animate-fade-in">
           <div className="mb-8">
-            <div className="w-40 h-40 mx-auto mb-6 rounded-full bg-gradient-to-r from-bb-green via-bb-yellow to-bb-orange p-2 animate-glow">
+            <div className="w-32 h-32 sm:w-40 sm:h-40 mx-auto mb-6 rounded-full bg-gradient-to-r from-bb-green via-bb-yellow to-bb-orange p-2 animate-glow">
               <div className="w-full h-full rounded-full bg-bb-dark flex items-center justify-center border-2 border-bb-green">
-                <Beaker className="text-6xl text-bb-green" size={80} />
+                <Beaker className="text-5xl sm:text-6xl text-bb-green" size={64} />
               </div>
             </div>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 font-oswald tracking-wider">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 font-oswald tracking-wider">
             <span className="bg-gradient-to-r from-bb-green via-bb-yellow to-bb-orange bg-clip-text text-transparent">
               Manuj Dinesh Chaudhari
             </span>
           </h1>
 
-          <p className="text-2xl md:text-3xl text-bb-green mb-4 font-mono tracking-wide">
+          <p className="text-lg sm:text-2xl md:text-3xl text-bb-green mb-2 sm:mb-4 font-mono tracking-wide">
             EXPERIMENT • CODE • MASTERY
           </p>
 
-          <div className="bg-bb-gray/80 border border-bb-green/50 rounded-lg p-6 mb-8 max-w-3xl mx-auto">
-            <p className="text-lg text-gray-300 mb-4 font-mono">
+          <div className="bg-bb-gray/80 border border-bb-green/50 rounded-lg p-4 sm:p-6 mb-6 sm:mb-8 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-300 mb-2 sm:mb-4 font-mono">
               I am not in danger, Skyler. I AM the danger!
             </p>
-            <p className="text-base text-gray-400 font-mono">
+            <p className="text-sm sm:text-base text-gray-400 font-mono">
               From concept to deployment — delivering sharp, modern web solutions.
             </p>
           </div>

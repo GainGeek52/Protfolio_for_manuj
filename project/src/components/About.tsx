@@ -94,16 +94,16 @@ const App: React.FC = () => {
     ];
 
     return (
-        <section id="about" className="py-20 bg-gradient-to-b from-bb-dark via-bb-gray to-bb-dark text-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="about" className="py-14 sm:py-20 bg-gradient-to-b from-bb-dark via-bb-gray to-bb-dark text-white">
+            <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
                 {/* Header Section */}
-                <div className="text-center mb-16">
-                    <h2 className="text-5xl md:text-6xl font-bold mb-6 font-oswald tracking-wider">
+                <div className="text-center mb-10 sm:mb-16">
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 font-oswald tracking-wider">
                         <span className="bg-gradient-to-r from-bb-green via-bb-yellow to-bb-orange bg-clip-text text-transparent">
                             THE FORMULA
                         </span>
                     </h2>
-                    <div className="text-xl text-gray-300 max-w-4xl mx-auto font-mono space-y-4">
+                    <div className="text-base sm:text-xl text-gray-300 max-w-4xl mx-auto font-mono space-y-2 sm:space-y-4">
                         <p>Chemistry is the study of change. – Walter White</p>
                         <p>
                             I'm Manuj Chaudhari, a MERN stack developer and student of Computer Applications.
@@ -119,7 +119,7 @@ const App: React.FC = () => {
                 {/* <ProjectVideoSlider /> */}
 
                 {/* Main Content Grid */}
-                <div className="grid md:grid-cols-2 gap-12 mb-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 mb-10 sm:mb-16">
                     {/* Left Column: Origin Story & Interactive Skills */}
                     <div className="bg-bb-gray/50 border border-bb-green/30 rounded-xl p-8">
                         <div className="flex items-center mb-6">

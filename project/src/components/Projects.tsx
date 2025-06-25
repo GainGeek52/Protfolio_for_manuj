@@ -47,11 +47,7 @@ const Projects: React.FC = () => {
       title: "Balaji Super Shopy",
       description:
         "Frontend-only eCommerce site for a local store built with React. Features dynamic product rendering and cart functionality.",
-      images: [
-        "/docs/one.png",
-        "/docs/two.png",
-        "/docs/three.png"
-      ],
+      video: '/videos/balajishop.mp4',
       image: undefined,
       category: "business",
       technologies: ["React", "Tailwind CSS"],
@@ -101,6 +97,33 @@ const Projects: React.FC = () => {
       demo: "#",
       featured: false,
       purity: "96.2%",
+    },
+    {
+      id: 7,
+      title: "Chadharizz",
+      description:
+        "A modern, minimal HTML landing page template using Vite. Features fast loading, responsive design, and easy integration for new projects.",
+      video: '/videos/ecommerce.mp4',
+      image: undefined,
+      category: "business",
+      technologies: ["HTML", "JavaScript", "Vite"],
+      github: "https://github.com/webcrafter011/React-Ecommerce-Website",
+      demo: "https://react-ecommerce-website-theta.vercel.app/",
+      featured: false,
+      purity: "98.0%",
+    },
+    {
+      id: 8,
+      title: "CodeChef Solver",
+      description:
+        "AI-powered web app that provides solutions and explanations for CodeChef programming problems. Features a modern UI and instant code analysis.",
+      image: '/docs/codechef.png',
+      category: "business",
+      technologies: ["React", "JavaScript", "AI"],
+      github: "https://github.com/webcrafter011/codechef-problem-solver",
+      demo: "https://codechef-problem-solver-sfp7.vercel.app/",
+      featured: false,
+      purity: "97.8%",
     },
   ];
 
@@ -161,22 +184,22 @@ const Projects: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredProjects.map((project) => {
             const videoRef = project.video ? useRef<HTMLVideoElement>(null) : null;
             const [isHovered, setIsHovered] = useState(false);
             const [carouselIndex, setCarouselIndex] = useState(0);
             useEffect(() => {
               let interval: ReturnType<typeof setInterval>;
-              if (isHovered && project.images) {
+              if (isHovered && Array.isArray((project as any).images)) {
                 interval = setInterval(() => {
-                  setCarouselIndex((prev) => (prev + 1) % project.images.length);
+                  setCarouselIndex((prev) => (prev + 1) % ((project as any).images.length));
                 }, 3000);
               } else {
                 setCarouselIndex(0);
               }
               return () => clearInterval(interval);
-            }, [isHovered, project.images]);
+            }, [isHovered, project]);
             return (
               <div
                 key={project.id}
@@ -212,9 +235,9 @@ const Projects: React.FC = () => {
                       preload="metadata"
                       poster={undefined}
                     />
-                  ) : project.images ? (
+                  ) : Array.isArray((project as any).images) ? (
                     <img
-                      src={project.images[carouselIndex]}
+                      src={(project as any).images[carouselIndex]}
                       alt={project.title}
                       className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300 filter brightness-75"
                     />

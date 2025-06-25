@@ -3,9 +3,30 @@ import requests
 from streamlit_lottie import st_lottie
 from streamlit_option_menu import option_menu
 from PIL import Image
+import base64
 
 # Page config
 st.set_page_config(page_title="Manuj Dinesh Chaudhari - Portfolio", page_icon="🧪", layout="wide")
+
+# Function to load and display GIF
+def load_gif(gif_path):
+    with open(gif_path, "rb") as file:
+        contents = file.read()
+        data_url = base64.b64encode(contents).decode("utf-8")
+        return data_url
+
+# Custom loader
+def show_loader():
+    gif_path = "../project/public/videos/The Internet's Best Breaking Bad Gifs.gif"
+    gif_data = load_gif(gif_path)
+    st.markdown(
+        f'<div style="display: flex; justify-content: center;"><img src="data:image/gif;base64,{gif_data}" alt="Loading..." width="200px"></div>',
+        unsafe_allow_html=True
+    )
+
+# Show loader while loading content
+with st.spinner("Cooking up something special..."):
+    show_loader()
 
 # Custom CSS
 def local_css(file_name):
@@ -63,7 +84,13 @@ if selected == "Home":
             st.write("[LinkedIn](https://www.linkedin.com/in/manuj-chaudhari-54b7bb242)")
         
         with right_column:
-            st_lottie(lottie_coding, height=300, key="coding")
+            # Display Breaking Bad GIF
+            gif_path = "../project/public/videos/The Internet's Best Breaking Bad Gifs.gif"
+            gif_data = load_gif(gif_path)
+            st.markdown(
+                f'<img src="data:image/gif;base64,{gif_data}" alt="Breaking Bad" width="100%">',
+                unsafe_allow_html=True
+            )
 
 elif selected == "Projects":
     st.header("Projects")
@@ -177,6 +204,13 @@ button[type=submit] {
 }
 button[type=submit]:hover {
     background-color: #45a049;
+}
+
+/* Loader styling */
+.stSpinner {
+    text-align: center;
+    max-width: 200px;
+    margin: 0 auto;
 }
 </style>
 """, unsafe_allow_html=True) 

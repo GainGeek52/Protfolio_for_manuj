@@ -49,21 +49,21 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-bb-dark via-bb-gray to-bb-dark">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 font-oswald tracking-wider">
+    <section id="contact" className="py-14 sm:py-20 bg-gradient-to-b from-bb-dark via-bb-gray to-bb-dark">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 font-oswald tracking-wider">
             <span className="bg-gradient-to-r from-bb-green via-bb-yellow to-bb-orange bg-clip-text text-transparent">
               MAKE CONTACT
             </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto font-mono">
+          <p className="text-base sm:text-xl text-gray-300 max-w-4xl mx-auto font-mono">
             I'm always open to freelance projects, collaborations, or anything exciting in full-stack development.
-            Let’s build something powerful together.
+            Let's build something powerful together.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
           {/* Contact Information */}
           <div className="bg-bb-gray/30 border border-bb-green/30 rounded-xl p-8">
             <h3 className="text-3xl font-semibold mb-6 font-oswald text-bb-green">ESTABLISH CONNECTION</h3>
@@ -208,7 +208,7 @@ const Contact: React.FC = () => {
             </p>
             <p className="text-gray-300 font-mono">
               I build digital experiences with care, consistency, and clean code.
-              Let’s work together to create something great.
+              Let's work together to create something great.
             </p>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Beaker, User, Briefcase, Mail } from 'lucide-react';
+import { Beaker, User, Briefcase, Mail, X, Menu } from 'lucide-react';
 
 interface HeaderProps {
   activeSection: string;
@@ -24,9 +24,9 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   };
 
   return (
-    <header className="bg-bb-dark/95 backdrop-blur-sm border-b border-bb-green/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+    <header className="bg-bb-dark/95 backdrop-blur-sm border-b border-bb-green/30 sticky top-0 z-40">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-center py-3 md:py-4 gap-2 md:gap-0">
           <div className="flex items-center space-x-3">
             <Beaker className="h-10 w-10 text-bb-green animate-glow" />
             <div>
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-lg transition-all duration-300 font-oswald font-semibold ${
+                  className={`flex items-center space-x-2 px-3 md:px-4 py-2 rounded-lg transition-all duration-300 font-oswald font-semibold focus:outline-none focus:ring-2 focus:ring-bb-yellow focus:ring-offset-2 focus:ring-offset-bb-dark text-base md:text-lg ${
                     activeSection === item.id
                       ? 'bg-bb-green text-bb-dark shadow-lg animate-glow'
                       : 'text-bb-green hover:text-bb-yellow hover:bg-bb-gray/50 border border-bb-green/20 hover:border-bb-yellow/50'
@@ -60,36 +60,38 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 rounded-lg text-bb-green hover:text-bb-yellow hover:bg-bb-gray/50 transition-colors border border-bb-green/30"
+            className="md:hidden p-3 rounded-lg text-bb-green hover:text-bb-yellow hover:bg-bb-gray/50 transition-colors border border-bb-green/30 focus:outline-none focus:ring-2 focus:ring-bb-yellow focus:ring-offset-2 focus:ring-offset-bb-dark"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle navigation menu"
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? <X className="h-7 w-7" /> : <Menu className="h-7 w-7" />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-bb-green/30">
-            <nav className="flex flex-col space-y-2">
+          <nav className="md:hidden bg-bb-dark/95 border-t border-bb-green/30 rounded-b-xl shadow-lg animate-fade-in">
+            <ul className="flex flex-col py-4 space-y-2">
               {navItems.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 font-oswald font-semibold ${
-                      activeSection === item.id
-                        ? 'bg-bb-green text-bb-dark'
-                        : 'text-bb-green hover:text-bb-yellow hover:bg-bb-gray/50'
-                    }`}
-                  >
-                    <Icon className="h-5 w-5" />
-                    <span>{item.label}</span>
-                  </button>
+                  <li key={item.id}>
+                    <button
+                      onClick={() => scrollToSection(item.id)}
+                      className={`w-full flex items-center space-x-3 px-6 py-4 text-lg font-oswald font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-bb-yellow focus:ring-offset-2 focus:ring-offset-bb-dark ${
+                        activeSection === item.id
+                          ? 'bg-bb-green text-bb-dark shadow-lg animate-glow'
+                          : 'text-bb-green hover:text-bb-yellow hover:bg-bb-gray/50 border border-bb-green/20 hover:border-bb-yellow/50'
+                      }`}
+                    >
+                      <Icon className="h-5 w-5" />
+                      <span>{item.label}</span>
+                    </button>
+                  </li>
                 );
               })}
-            </nav>
-          </div>
+            </ul>
+          </nav>
         )}
       </div>
     </header>
